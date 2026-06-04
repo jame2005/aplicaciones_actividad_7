@@ -1,1 +1,0 @@
-# aplicaciones_actividad_7
