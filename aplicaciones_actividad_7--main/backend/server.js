@@ -119,6 +119,14 @@ app.delete('/api/rutas/:id', (req, res) => {
         res.status(404).json({ estado: "error", mensaje: "Ruta no encontrada" });
     }
 });
+/**Metodo para errores en caso de no encontrar el recurso */
+app.use((req, res) => {
+    res.status(404).json({
+        estado: "error",
+        mensaje: "Recurso no encontrado",
+        detalles: `La ruta '${req.originalUrl}' no existe en este servidor.`
+    });
+});
 
 app.listen(PORT, () => {
     console.log(`Servidor API corriendo en http://localhost:${PORT}`);
